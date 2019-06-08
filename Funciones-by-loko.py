@@ -17,6 +17,7 @@ class SW:
         self.tela = Canvas(self.pantalla, height=400, width=720, bg='white')
         self.btnPintarSeno = Button(self.tela, text="SEN", command=self.graficarSeno)
         self.btnPintarCoseno = Button(self.tela, text="COS", command=self.graficarCoseno)
+        self.btnPintarTangente = Button(self.tela, text="TAN", command=self.graficarTangente)
         self.pi = 3.141593
 
 
@@ -39,6 +40,7 @@ class SW:
 
         self.btnPintarSeno.place(x=20, y=20)
         self.btnPintarCoseno.place(x=100, y=20)
+        self.btnPintarTangente.place(x=180, y=20)
 
 
         self.pantalla.mainloop()
@@ -68,6 +70,21 @@ class SW:
             y = -(math.cos(angulo)*98)+300
             self.tela.create_oval(i,y,i,y)
             self.tela.create_oval(i+360,y,i+360,y)
+
+    def graficarTangente(self):
+        """
+        A lo bestia es graficado el coseno
+        """
+        angulo = 0
+        # Pinto desde -pi a cero
+        for i in range(0, 361):
+            angulo = float((-(2-(i/180)))*(self.pi))
+            # Calculo la cordenada en y 
+            y = -(math.tan(angulo)*98)+300
+            if y > 200: 
+                self.tela.create_oval(i,y,i,y)
+                self.tela.create_oval(i+360,y,i+360,y)
+            
 
 
 

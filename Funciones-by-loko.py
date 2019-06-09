@@ -5,6 +5,14 @@ Me propongo a crear una graficadora estatica de:
 
 Seno:
 
+grafica el seno
+
+cos
+
+gra...
+
+
+como se limpia : yo tageo todos los puntos del universo
 
 """
 
@@ -18,6 +26,7 @@ class SW:
         self.btnPintarSeno = Button(self.tela, text="SEN", command=self.graficarSeno)
         self.btnPintarCoseno = Button(self.tela, text="COS", command=self.graficarCoseno)
         self.btnPintarTangente = Button(self.tela, text="TAN", command=self.graficarTangente)
+        self.btnLimpiarPantalla = Button(self.tela, text="limpiar", command=self.limpiarPantalla)
         self.pi = 3.141593
 
 
@@ -41,6 +50,7 @@ class SW:
         self.btnPintarSeno.place(x=20, y=20)
         self.btnPintarCoseno.place(x=100, y=20)
         self.btnPintarTangente.place(x=180, y=20)
+        self.btnLimpiarPantalla.place(x=600, y=150)
 
 
         self.pantalla.mainloop()
@@ -55,8 +65,8 @@ class SW:
             angulo = float((-(2-(i/180)))*(self.pi))
             # Calculo la cordenada en y 
             y = -(math.sin(angulo)*98)+300
-            self.tela.create_oval(i,y,i,y)
-            self.tela.create_oval(i+360,y,i+360,y)
+            self.tela.create_oval(i,y,i,y, tag="graficar")
+            self.tela.create_oval(i+360,y,i+360,y, tag="graficar")
 
     def graficarCoseno(self):
         """
@@ -68,8 +78,8 @@ class SW:
             angulo = float((-(2-(i/180)))*(self.pi))
             # Calculo la cordenada en y 
             y = -(math.cos(angulo)*98)+300
-            self.tela.create_oval(i,y,i,y)
-            self.tela.create_oval(i+360,y,i+360,y)
+            self.tela.create_oval(i,y,i,y, fill="dark blue", tag="graficar")
+            self.tela.create_oval(i+360,y,i+360,y, fill="dark blue", tag="graficar")
 
     def graficarTangente(self):
         """
@@ -82,8 +92,13 @@ class SW:
             # Calculo la cordenada en y 
             y = -(math.tan(angulo)*98)+300
             if y > 200: 
-                self.tela.create_oval(i,y,i,y)
-                self.tela.create_oval(i+360,y,i+360,y)
+                self.tela.create_oval(i,y,i,y, tag="graficar")
+                self.tela.create_oval(i+360,y,i+360,y, tag="graficar")
+
+
+    def limpiarPantalla(self):
+        print("Aka")
+        self.tela.delete("graficar")
             
 
 

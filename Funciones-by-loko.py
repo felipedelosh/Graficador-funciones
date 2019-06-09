@@ -27,6 +27,7 @@ class SW:
         self.btnPintarCoseno = Button(self.tela, text="COS", command=self.graficarCoseno)
         self.btnPintarTangente = Button(self.tela, text="TAN", command=self.graficarTangente)
         self.btnLimpiarPantalla = Button(self.tela, text="limpiar", command=self.limpiarPantalla)
+        self.btnSenXX = Button(self.tela, text="(SENX)/X)", command=self.graficarSenoXX)
         self.lblYUP = Label(self.tela, text="1")
         self.lblMittle = Label(self.tela, text="0")
         self.lblButtom = Label(self.tela, text="-1")
@@ -57,6 +58,7 @@ class SW:
         self.btnPintarCoseno.place(x=100, y=20)
         self.btnPintarTangente.place(x=180, y=20)
         self.btnLimpiarPantalla.place(x=600, y=150)
+        self.btnSenXX.place(x=420, y=20)
 
 
         self.pantalla.mainloop()
@@ -100,6 +102,19 @@ class SW:
             if y > 200: 
                 self.tela.create_oval(i,y,i,y, tag="graficar")
                 self.tela.create_oval(i+360,y,i+360,y, tag="graficar")
+
+
+    def graficarSenoXX(self):
+        """Me dispongo a calcular sexx para todo -2pi hasta 0"""
+        angulo = 0
+        # pintooooooo -2pi to 
+        for i in range(1, 720):
+            angulo = float((-(2-(i/180)))*(self.pi))
+            try:
+                y = -((math.sin(angulo)/angulo)*98)+300
+                self.tela.create_oval(i,y,i,y, tag="graficar")
+            except:
+                pass
 
 
     def limpiarPantalla(self):

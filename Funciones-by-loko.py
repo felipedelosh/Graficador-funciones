@@ -27,6 +27,9 @@ class SW:
         self.btnPintarCoseno = Button(self.tela, text="COS", command=self.graficarCoseno)
         self.btnPintarTangente = Button(self.tela, text="TAN", command=self.graficarTangente)
         self.btnLimpiarPantalla = Button(self.tela, text="limpiar", command=self.limpiarPantalla)
+        self.lblYUP = Label(self.tela, text="1")
+        self.lblMittle = Label(self.tela, text="0")
+        self.lblButtom = Label(self.tela, text="-1")
         self.pi = 3.141593
 
 
@@ -43,6 +46,9 @@ class SW:
 
         # Eje y
         self.tela.create_line(360, 200, 360, 400)
+        self.lblYUP.place(x = 350, y=200)
+        self.lblMittle.place(x= 350, y=300)
+        self.lblButtom.place(x= 350, y=380)
         # Eje x
         self.tela.create_line(0,300, 720, 300)
 
@@ -97,7 +103,6 @@ class SW:
 
 
     def limpiarPantalla(self):
-        print("Aka")
         self.tela.delete("graficar")
             
 
